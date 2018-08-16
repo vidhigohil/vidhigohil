@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #fcfcfc;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.logo {
+ float: left;
+ font-size: 25px;
+ font-weight: bold;
+ }
+
+.topnav a:hover {
+  background-color: #cecece;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #e9e9e9;
+  color: black;
+  margin-top: 25px;
+}
+
+.topnav .search-container {
+  float: center;
+}
+
+.topnav input[type=text] {
+  padding: 6px 200px;
+  margin-top: 30px;
+  margin-left: 120px;
+  font-size: 17px;
+  font-family: Georgia, serif;
+  border: black;
+}
+
+.topnav .search-container button {
+  float: center;
+  padding: 5px 12px;
+  margin-top: 30px;
+  background-color: #ffffff;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+
+
+
+
+.navbar {
+    overflow: hidden;
+    background-color: #e9e9e9;
+    font-family: Georgia, serif;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 25px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #e9e9e9;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+.slideshow-container {
+  max-width: 3000px;
+  position: relative;
+  height: 325px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column1 {
+    float:left;
+    padding: 5px;
+
+}
+
+.left, .right {
+width: 25%;
+}
+.middle {
+width: 50%;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row1 {margin: 0 -1px;}
+
+/* Clear floats after the columns */
+.row1:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float:left;
+    width: 25%;
+    padding: 3px;
+}
+
+/* Clearfix (clear floats) */
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+p.a {
+    font-family: Georgia, serif;
+}
+
+
+.column2 {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row2 {margin: 0 -1px;}
+
+/* Clear floats after the columns */
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 300px) {
+  .column2 {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  text-align: center;
+  background-color: #d1d1d1;
+  height:330px;
+}
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 1350px;
+    height: 50px;
+    background-color:#171717;
+    color: white;
+    text-align: center;
+}
+
+.footer{
+  overflow: hidden;
+  background-color:#171717;
+}
+
+.footer a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+.footer a:hover {
+  background-color: #171717;
+  color: grey;
+}
+
+.footer a.active {
+  background-color: #171717;
+  color: white;
+  margin-top:10px;
+}
+
+.footer .login-container {
+  float: right;
+}
+
+.footer input[type=text] {
+  padding: 6px;
+  margin-top: 15px;
+  font-size: 17px;
+  border: none;
+  width:300px;
+}
+
+.footer .login-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 15px;
+  margin-right: 16px;
+  background-color: #555;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.footer .login-container button:hover {
+  background-color: green;
+}
+
+@media screen and (max-width: 600px) {
+  .footer .login-container {
+    float: none;
+  }
+  .footer a, .footer input[type=text], .footer .login-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .footer input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="#default" class="logo"><img src="PC-logo.png" style="height:60px;width:220px;"></a>
+  <a class="active" href="#Contact Us">Contact Us</a>
+  <a class="active" href="#Login">Login</a>
+  <a class="active" href="#Register">Register</a>
+  <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search products" name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+<div class="navbar"> 
+  <div class="dropdown">
+    <button class="dropbtn">RINGS
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Daily wear</a>
+      <a href="#">Engagement </a>
+      <a href="#">Couple Bands</a>
+      <a href="#">Solitaire</a>
+      <a href="#">Men's</a>
+    </div>
+  </div>
+  
+    <div class="dropdown">
+      <button class="dropbtn">EARRINGS
+         <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+      		<a href="#">Stud</a>
+      		<a href="#">Drop</a>
+      		<a href="#">Hoops</a>
+    	  </div>
+    </div>
+
+     <div class="dropdown">
+         <button class="dropbtn">PENDANTS
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+      		<a href="#">Daily wear</a>
+      		<a href="#">Religious </a>
+      		<a href="#">Mangalsutras</a>
+            </div>
+     </div>
+
+      <div class="dropdown">
+         <button class="dropbtn">ALL JEWELLERY
+           <i class="fa fa-caret-down"></i>
+           </button>
+           <div class="dropdown-content">
+     		 <a href="#">Gold</a>
+      		 <a href="#">Silver</a>
+      		 <a href="#">Diamond</a>
+      		 <a href="#">Gemstone</a>
+    	   </div>
+      </div> 
+
+	<div class="dropdown">
+         <button class="dropbtn">COLLECTIONS
+           <i class="fa fa-caret-down"></i>
+           </button>
+           <div class="dropdown-content">
+     		 <a href="#">Love Gold</a>
+      		 <a href="#">Grecia</a>
+      		 <a href="#">Holy Spin</a>
+      		 <a href="#">Mrinali</a>
+      		 <a href="#">Lal Quila</a>
+    	   </div>
+      </div> 
+
+      <div class="dropdown">
+         <button class="dropbtn">NEW ARRIVALS
+           <i class="fa fa-caret-down"></i>
+           </button>
+           <div class="dropdown-content">
+     		 <a href="#">Rings</a>
+      		 <a href="#">Earrings</a>
+      		 <a href="#">Pendant</a>
+      		 <a href="#">Bracelet</a>
+      		 <a href="#">Nosepin</a>
+    	   </div>
+      </div> 
+
+      <div class="dropdown">
+         <button class="dropbtn">SAME DAY SHIPPING
+           <i class="fa fa-caret-down"></i>
+           </button>
+           <div class="dropdown-content">
+     		 <a href="#">Below 10K</a>
+      		 <a href="#">10-20K</a>
+      		 <a href="#">20-30k</a>
+      		 <a href="#">30-50k</a>
+      		 <a href="#">Above 50K</a>
+    	   </div>
+      </div> 
+
+	<div class="dropdown">
+         <button class="dropbtn">GOLD COINS
+           <i class="fa fa-caret-down"></i>
+           </button>
+           <div class="dropdown-content">
+     		 <a href="#">1 gram</a>
+      		 <a href="#">2 gram</a>
+      		 <a href="#">5 gram</a>
+      		 <a href="#">10 gram</a>
+      		 <a href="#">20 gram</a>
+    	   </div>
+      </div> 
+</div>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="slideshow11.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="slideshow2.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="slideshow33.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="slideshow3.jpg" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<br>
+  <img src="BA.jpg" style="width:1000px;height:300px">
+
+
+<h2><p class="a"><center>PCJ Exclusive</center></p></h2>
+
+<div class="row1">
+  <div class="column1 left">
+  <img src="Sa.jpg"  style="width:280px;height:500px">
+  </div>
+
+  <div class="column1 middle">
+   <img src="Sa2.jpg"  style="width:650px;height:500px">
+  </div>
+
+  <div class="column1 right">
+    <img src="Sa3.jpg"  style="width:280px;height:500px">
+  </div>
+</div>
+
+
+<h2><p class="a"><center>TOP TRENDING COLLECTIONS</center></p></h2>
+
+
+<div class="row">
+  <div class="column">
+    <img src="pc1.jpg"  style="width:280px;height:200px">
+  </div>
+  <div class="column">
+    <img src="pc22.jpg" style="width:280px;height:200px">
+  </div>
+  <div class="column">
+    <img src="pc33.jpg"  style="width:280px;height:200px">
+  </div>
+  <div class="column">
+    <img src="pc44.jpg"  style="width:280px;height:200px">
+  </div>
+<br><br>
+<br><br>
+  <div class="column">
+    <img src="pc55.jpg" style="width:280px;height:200px">
+  </div>
+  <div class="column">
+    <img src="pc66.jpg"  style="width:280px;height:200px">
+  </div>
+   <div class="column">
+    <img src="pc77.jpg"  style="width:280px;height:200px">
+  </div>
+  <div class="column">
+    <img src="pc88.jpg"  style="width:280px;height:200px">
+  </div>
+</div>
+
+
+
+<h2><p class="a"><center>Best Featured Sale</center></p></h2>
+<h5><p class="a"><center>Discover Your Favourite</center></h5>
+
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+     <img src="ex1.jpg"  style="width:100%">
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="ex2.jpg"  style="width:100%">
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+     <img src="ex3.jpg"  style="width:100%">
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="ex5.jpg"  style="width:100%">
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="footer">
+  <a class="active" href="#home">Home</a>
+ <a class="active" href="#about us">About Us</a>   
+<a class="active" href="#our policies">Our Policies</a>
+ <a class="active" href="Terms and conditions">Terms and Conditions</a>
+ <a class="active" href="track your order">Track your Order</a>
+ <a class="active" href="#faq">FAQ</a>
+ <a class="active" href="sign up for PCJ offers">Sign Up for PCJ Offers</a>
+  <div class="login-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="your@email.com" name="psw">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+<div class="footer">
+     <h5><p class="a"><center>© 2018 PCJeweller.   All rights reserved. | Privacy Policy</center></h5>
+</div>
+
+
+
+
+</body>
+</html>
